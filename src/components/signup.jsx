@@ -36,6 +36,11 @@ const Signup = () => {
 
   return (
     <div className="container">
+      {/* Back Button */}
+      <button className="back-button" onClick={() => navigate("/")}>
+        ← Back
+      </button>
+
       <div className="card">
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
