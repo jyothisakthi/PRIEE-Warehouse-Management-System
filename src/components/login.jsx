@@ -22,6 +22,11 @@ const Login = () => {
 
   return (
     <div className="container">
+      {/* Back Button */}
+      <button className="back-button" onClick={() => navigate("/")}>
+        ← Back
+      </button>
+
       <div className="card">
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>

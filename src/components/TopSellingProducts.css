@@ -1,0 +1,16 @@
+.top-selling-container {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+.slide img {
+    width: 100%;
+    height: 140px;
+    border-radius: 10px;
+}
+
+.slick-prev, .slick-next {
+    color: black;
+}
