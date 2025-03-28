@@ -4,6 +4,7 @@ import { MdExpandMore, MdExpandLess } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import "./home.css";
 
+
 const Sidebar = () => {
     const navigate = useNavigate();
     const [openMenu, setOpenMenu] = useState({
@@ -56,7 +57,7 @@ const Sidebar = () => {
                 </li>
                 {openMenu.payments && (
                     <ul className="submenu">
-                        <li>Vendors</li>
+                        <li>Vendor</li>
                         <li>Purchase Orders</li>
                         <li>Purchase Receives</li>
                         <li>Bills</li>
