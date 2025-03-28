@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./loginSignup.css";
 
 const Signup = () => {
@@ -18,25 +19,46 @@ const Signup = () => {
     termsAccepted: false,
   });
 
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
+  const [error, setError] = useState(""); // State to handle errors
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+  
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
-    console.log("Signup Form Submitted:", formData);
+  
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        alert("Signup successful!");
+        navigate("/login");
+      } else {
+        alert(data.message || "Signup failed");
+      }
+    } catch (error) {
+      console.error("Signup error:", error);
+      alert("Something went wrong");
+    }
   };
+  
 
   return (
     <div className="container">
-      {/* Back Button */}
       <button className="back-button" onClick={() => navigate("/")}>
         ← Back
       </button>
@@ -93,6 +115,7 @@ const Signup = () => {
           </div>
           <button className="button" type="submit">Sign Up</button>
         </form>
+        {error && <p style={{ color: "red" }}>{error}</p>} {/* Error display */}
         <p className="toggle-text">
           Already have an account?{" "}
           <span onClick={() => navigate("/login")} className="link-text">
