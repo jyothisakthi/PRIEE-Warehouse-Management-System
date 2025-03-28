@@ -57,7 +57,8 @@ const Sidebar = () => {
                 </li>
                 {openMenu.payments && (
                     <ul className="submenu">
-                        <li>Vendor</li>
+                        <li onClick={() => navigate("/vendor")}> Vendor</li>
+
                         <li>Purchase Orders</li>
                         <li>Purchase Receives</li>
                         <li>Bills</li>
