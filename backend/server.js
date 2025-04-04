@@ -19,5 +19,9 @@ app.get("/", (req, res) => {
 const authRoutes = require("./routes/authRoutes");
 app.use("/api/auth", authRoutes);
 
+// Vendor routes (Unified)
+const vendorRoutes = require("./routes/vendorRoutes");
+app.use("/api/vendor", vendorRoutes);
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server started on port ${PORT}`));
