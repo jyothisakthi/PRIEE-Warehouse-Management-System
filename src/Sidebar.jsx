@@ -3,6 +3,8 @@ import { FaHome, FaBox, FaShoppingCart, FaMoneyBillWave, FaChartBar } from "reac
 import { MdExpandMore, MdExpandLess } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import "./home.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 
 
 const Sidebar = () => {
@@ -59,7 +61,8 @@ const Sidebar = () => {
                     <ul className="submenu">
                         <li onClick={() => navigate("/vendor")}> Vendor</li>
 
-                        <li>Purchase Orders</li>
+                        <li onClick={() => navigate("/purchaseorder")}>Purchase Orders</li>
+
                         <li>Purchase Receives</li>
                         <li>Bills</li>
                         <li>Payments Made</li>
