@@ -64,6 +64,8 @@ tr:hover {
     font-size: 1.5rem;
     font-weight: bold;
     color: #3b82f6;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
 
 /* Search Bar */
@@ -75,6 +77,7 @@ tr:hover {
     border-radius: 25px;
     border: 1px solid #ddd;
     width: 250px;
+    height: 40px;
 }
 
 .search-icon {
@@ -162,33 +165,46 @@ tr:hover {
 
 /* Left Pane (Sidebar) */
 .left-pane {
-    width: 180px; /* Slightly increased width for better spacing */
+    width: 220px; /* Slightly increased width for better spacing */
     background-color: #ffffff;
     padding: 1.5rem;
     border-right: 1px solid #ddd;
+    font-size: small;
+    margin: 2px 0px;
 }
 
 .left-pane ul {
-    list-style-type: none;
-    padding: 0;
+    list-style: none !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
 }
+.left-pane ul, 
+.left-pane li, 
+.left-pane .menu-icon, 
+.left-pane .submenu {
+    all: unset; /* Resets Bootstrap styles selectively */
+}
+
 
 .left-pane li {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px 15px; /* Increased padding for more space */
-    cursor: pointer;
+    padding: 12px 15px !important;
     font-weight: bold;
+    border-radius: 5px;
     transition: background 0.3s;
-    margin-bottom: 4px; /* Added margin to create spacing */
-    border-radius: 5px; /* Optional: rounded corners */
 }
 
 .left-pane li:hover {
-    background-color: #f3f4f6;
+    background-color: #f3f4f6 !important;
 }
 
+
+.left-pane .menu-icon {
+    font-size: 1.5rem !important; /* Ensure icons remain the same size */
+    margin-right: 10px !important;
+}
 .submenu {
     list-style-type: none;
     padding-left: 30px;
