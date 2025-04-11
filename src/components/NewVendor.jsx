@@ -26,7 +26,7 @@ const NewVendor = () => {
         bankName: "",
         accountNumber: "",
         reAccountNumber: "",
-        ifsc: ""
+        ifsc: "",
     });
     const [error, setError] = useState("");
 
@@ -38,23 +38,41 @@ const NewVendor = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
+        // Validate required fields
         for (const key in vendorData) {
-            if (!vendorData[key]) {
+            if (!vendorData[key] && key !== "companyName" && key !== "email" && key !== "phone" && key !== "pan") {
                 setError("Please fill in all required fields.");
                 return;
             }
         }
-        
+
         if (vendorData.accountNumber !== vendorData.reAccountNumber) {
             setError("Account numbers do not match.");
             return;
         }
         setError("");
-        console.log("Vendor Data:", vendorData);
-        // Add API call here to save the vendor to MongoDB
+
+        try {
+            const response = await fetch("http://localhost:5000/api/vendor/add", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(vendorData),
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                alert("Vendor added successfully!");
+                navigate("/vendor"); // Redirect after successful submission
+            } else {
+                setError(data.message || "Failed to add vendor");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            setError("Something went wrong. Please try again.");
+        }
     };
 
     return (
@@ -80,6 +98,7 @@ const NewVendor = () => {
                                 <input type="text" name="lastName" placeholder="Last Name" value={vendorData.lastName} onChange={handleChange} required />
                             </div>
                         </div>
+
                         <div className="form-group">
                             <label>Company Name</label>
                             <input type="text" name="companyName" value={vendorData.companyName} onChange={handleChange} />
@@ -108,11 +127,6 @@ const NewVendor = () => {
                         <div className="form-group">
                             <input type="checkbox" name="msme" checked={vendorData.msme} onChange={handleChange} />
                             <label>MSME Registered?</label>
-                        </div>
-
-                        <div className="form-group">
-                            <label>Display Name *</label>
-                            <input type="text" name="displayName" value={vendorData.displayName} onChange={handleChange} required />
                         </div>
 
                         <h3>Address (Billing or Shipping Address) *</h3>
