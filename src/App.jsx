@@ -8,7 +8,9 @@ import NewVendor from "./components/NewVendor";
 
 import PurchaseOrder from "./components/purchaseorder";
 import NewPurchaseOrder from "./components/newpurchaseorder";
-
+import CustomerPage from "./components/CustomerPage";
+import NewCustomer from "./components/NewCustomer";
+import NewSalesOrder from "./components/NewSalesOrder";
 function App() {
   return (
     <Router>
@@ -21,6 +23,9 @@ function App() {
         
         <Route path="/purchaseorder" element={<PurchaseOrder />} />
         <Route path="/newpurchaseorder" element={<NewPurchaseOrder />} />
+        <Route path="/CustomerPage" element={<CustomerPage />} />
+        <Route path="/new-customer" element={<NewCustomer />} />
+        <Route path="/new-sales-order" element={<NewSalesOrder />} />
       </Routes>
     </Router>
   );

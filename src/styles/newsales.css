@@ -1,0 +1,81 @@
+/* newsales.css */
+
+.sales-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.sales-main {
+    display: flex;
+    flex: 1;
+}
+
+.col-md-9 {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+h2 {
+    color: #343a40;
+}
+
+.sales-form-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.bg-light {
+    background-color: #ffffff !important;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.btn-primary {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .sales-main {
+        flex-direction: column;
+    }
+
+    .col-md-9 {
+        padding: 15px;
+    }
+}
+
+.sales-order-btn {
+    background-color: #28a745; /* Green tone for sales */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.sales-order-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.sales-order-btn:active {
+    background-color: #1e7e34; /* Even darker green when clicked */
+    transform: scale(0.98);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+.ms-auto button{
+    margin-right: 0;
+}
