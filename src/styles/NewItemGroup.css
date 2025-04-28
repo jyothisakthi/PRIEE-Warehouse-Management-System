@@ -1,0 +1,159 @@
+/* General page container */
+.page-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Top bar with search dropdown and barcode button */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  
+  .search-dropdown {
+    padding: 8px;
+    font-size: 16px;
+    width: 300px; /* Make it wide for better visibility */
+  }
+  
+  .barcode-button {
+    padding: 8px 16px;
+    background-color: #2d89ef;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .barcode-button:hover {
+    background-color: #1e67c7; /* Darker shade for hover effect */
+  }
+  
+  /* Barcode scanner container styling */
+  .scanner-container {
+    width: 640px;
+    height: 480px;
+    margin: 20px auto;
+    border: 2px solid #ccc;
+    position: relative;
+    background-color: #f0f0f0;
+  }
+  
+  /* Styling for scanned barcode result */
+  .scanned-result {
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+    color: #2d89ef;
+    font-weight: bold;
+  }
+  
+  /* Main content layout for form sections */
+  .main-content {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Ensure it wraps on smaller screens */
+    margin-top: 20px;
+  }
+  
+  .form-section {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+    min-width: 280px; /* Ensure form sections have a minimum width */
+  }
+  
+  .form-section h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  input[type="text"], select, input[type="file"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+  }
+  
+  textarea {
+    resize: vertical; /* Allow vertical resizing of text areas */
+  }
+  
+  /* Bottom buttons section */
+  .bottom-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    gap: 10px;
+  }
+  
+  .cancel-button, .save-button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .cancel-button {
+    background-color: #ccc;
+  }
+  
+  .save-button {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .cancel-button:hover {
+    background-color: #b0b0b0;
+  }
+  
+  .save-button:hover {
+    background-color: #218838;
+  }
+  
+  /* Responsive design: Stack form sections on smaller screens */
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+    }
+  
+    .scanner-container {
+      width: 100%;
+      height: auto;
+    }
+  
+    .bottom-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  /* Close button inside the scanner */
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .close-button:hover {
+    background-color: #e60000;
+  }

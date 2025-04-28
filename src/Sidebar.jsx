@@ -32,8 +32,8 @@ const Sidebar = () => {
                 </li>
                 {openMenu.inventory && (
                     <ul className="submenu">
-                        <li>Items</li>
-                        <li>Item Group</li>
+                        <li onClick={() => navigate("/ItemPage")}>Items</li>
+                        <li onClick={() => navigate("/NewItemGroup")}>Item Group</li>
                     </ul>
                 )}
 
